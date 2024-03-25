@@ -1,0 +1,26 @@
+/*MAPA*/
+#container{
+    background-color: black;
+    width: 1000px;
+    height: 700px;
+    margin: 50px auto 0 auto;
+    position: relative;
+}
+
+#nave_Player{
+    width: 70px;
+    height: 70px;
+    background-image: url('imagenes/nave.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+
+.disparo{
+
+    background-color: orange;
+    width: 20px;
+    height: 20px;
+    position : absolute
+}
