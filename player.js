@@ -16,7 +16,7 @@ function Nave_Player(x,y,board){
         this.sprite.style.left = this.x + 'px'
         board.appendChild(this.sprite)
     }
-
+    //Movimiento del Jugador
     this.move = function(){
         let moveInY = self.y + self.speed * self.directionY
         let moveInX = self.x + self.speed * self.directionX
@@ -28,8 +28,6 @@ function Nave_Player(x,y,board){
         if(moveInX >= 0 && moveInX <= 930){
             self.x = moveInX
             this.sprite.style.left = self.x + 'px'
-        }
-       
-       
+        }     
     }
 }
