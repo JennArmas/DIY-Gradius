@@ -4,8 +4,9 @@ let arrayEnemigos = []
 let timerNave;
 let timerEnemigo;
 let timerMuerte;
-
-
+let inicio = document.getElementById('start-game')
+let boton_inicio = document.getElementById('start-try')
+let boton_final = document.getElementById('try-again')
 
 
 function startGame(){
@@ -15,7 +16,7 @@ function startGame(){
     }, 20); 
     timerEnemigo = setInterval(function() {
         crearEnemigos(); 
-    }, 1500); 
+    }, 4000); 
 }
 
 function Muerte(){
@@ -25,8 +26,11 @@ function Muerte(){
    } else {
     board.removeChild(nave_Jugador.sprite)
     clearInterval(timerMuerte)
+    clearInterval(timerEnemigo)
+    alert("Game over")
    }
 }
+
 
 function reproducirDisparo(){
     const sonido1 = document.getElementById("sonido_laser")
@@ -35,13 +39,27 @@ function reproducirDisparo(){
 }
 
 function crearEnemigos(){
-    
     let numeroRandom = Math.floor(Math.random() * 10) * 65;
     let nave_Enemigo = new Enemigos(900,numeroRandom,board)
     arrayEnemigos.push(nave_Enemigo)
-    nave_Enemigo.addEnemy()
-    
+    nave_Enemigo.addEnemy()  
+    console.log(arrayEnemigos)
 }
+
+boton_inicio.addEventListener('click', function(e) {
+    inicio.style.display = 'none'
+    board.style.display = 'block'
+    nave_Jugador.isDead = false
+    startGame()
+})
+
+boton_final.addEventListener('click', function(e) {
+    inicio.style.display = 'block'   
+    board.style.display = 'none'
+    retry.style.display = 'none'
+    
+})
+    
 
 window.addEventListener('keydown',function(evento){
     switch(evento.key){
@@ -65,7 +83,7 @@ window.addEventListener('keydown',function(evento){
         case ' ' :
         reproducirDisparo()
         let bala = new Bala(nave_Jugador.x, nave_Jugador.y, board)
-        let bala2 = new Bala(nave_Jugador.x, nave_Jugador.y + 55, board)
+        let bala2 = new Bala(nave_Jugador.x, nave_Jugador.y + 55, board,)
         bala2.addBala();
         bala.addBala();
         break;   
@@ -84,5 +102,5 @@ window.addEventListener('keyup',function(evento){
     nave_Jugador.directionY = 0
 })
 
-startGame()
+
 

@@ -30,21 +30,21 @@ function Bala(x, y, board) {
         }
     }
     
-    function checkCollision() {
-       arrayEnemigos.forEach((enemy,index) => {
-        if (self.x < enemy.x + enemy.width &&
-            self.y < enemy.y + enemy.height &&
-            self.x + self.width > enemy.x &&
-            self.y + self.height > enemy.y) {
-                self.removeBala()
-                board.removeChild(enemy.sprite_Enemy);
-                arrayEnemigos.splice(index,1)
-                console.log(arrayEnemigos)
-            }
-        });
-    }     
-    
-
+function checkCollision() {
+    arrayEnemigos.forEach((enemy,index) => {
+     if (self.x < enemy.x + enemy.width &&
+         self.y < enemy.y + enemy.height &&
+         self.x + self.width > enemy.x &&
+         self.y + self.height > enemy.y) {
+             self.removeBala()
+             console.log(arrayEnemigos)
+             arrayEnemigos.splice(index,1)
+             clearInterval(enemy.timerEnemy)
+             console.log(arrayEnemigos)
+             board.removeChild(enemy.sprite_Enemy);
+         }
+     });
+ }
     this.removeBala = function() {
         clearInterval(self.timerBala);
         board.removeChild(self.sprite);

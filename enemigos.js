@@ -20,16 +20,16 @@ function Enemigos(x,y,board){
         self.checkbox()
         let moveX = self.x + self.speed * self.direction_E
         if (moveX <= 10){
+            clearInterval(self.timerEnemy)
             board.removeChild(self.sprite_Enemy);
-            arrayEnemigos.shift()
-            clearInterval(this.timerEnemy)
+            arrayEnemigos.shift()     
         }  
         if(moveX <= 930){
             self.x = moveX
             this.sprite_Enemy.style.left = self.x + 'px'
-
         } 
     }
+
     this.checkbox = function(){
         if (self.x < nave_Jugador.x + nave_Jugador.width &&
             self.y < nave_Jugador.y + nave_Jugador.height &&
