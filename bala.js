@@ -5,7 +5,7 @@ function Bala(x, y, board){
     this.y = y
     this.width = 20
     this.height = 10
-    this.directionX = 1
+    this.directionX = 1 
     this.speed = 5
     this.sprite = document.createElement("div")
 

@@ -6,7 +6,7 @@ function Nave_Player(x,y,board){
     this.height = 50
     this.directionX = 0
     this.directionY = 0
-    this.speed = 5
+    this.speed = 10
     this.sprite = document.createElement('div')
 
     //Aqui creamos la nave y la guardamos en el id = container

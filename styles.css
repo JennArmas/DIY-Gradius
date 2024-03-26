@@ -1,12 +1,11 @@
 /*MAPA*/
 #container{
-    background-color: black;
+    background-image: url('imagenes/fondo.avif');
     width: 1000px;
     height: 700px;
     margin: 50px auto 0 auto;
     position: relative;
 }
-
 #nave_Player{
     width: 70px;
     height: 70px;
@@ -15,11 +14,20 @@
     background-repeat: no-repeat;
     position: absolute;
 }
-
+.nave_Enemigos{
+    width: 70px;
+    height: 70px;
+    background-image: url('imagenes/nave.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
 
 .disparo{
-    background-color: orange;
+    background-image: url('imagenes/disparo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 30px;
-    height: 10px;
+    height: 15px;
     position : absolute
 }
