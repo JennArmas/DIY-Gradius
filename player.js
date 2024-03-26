@@ -7,6 +7,7 @@ function Nave_Player(x,y,board){
     this.directionX = 0
     this.directionY = 0
     this.speed = 10
+    this.isDead = false
     this.sprite = document.createElement('div')
 
     //Aqui creamos la nave y la guardamos en el id = container
@@ -30,4 +31,6 @@ function Nave_Player(x,y,board){
             this.sprite.style.left = self.x + 'px'
         }     
     }
+
+
 }

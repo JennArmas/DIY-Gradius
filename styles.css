@@ -5,6 +5,7 @@
     height: 700px;
     margin: 50px auto 0 auto;
     position: relative;
+    
 }
 #nave_Player{
     width: 70px;
@@ -13,11 +14,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
+
 }
 .nave_Enemigos{
-    width: 70px;
-    height: 70px;
-    background-image: url('imagenes/nave.png');
+    width: 100px;
+    height: 100px;
+    background-image: url('imagenes/enemigo.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;

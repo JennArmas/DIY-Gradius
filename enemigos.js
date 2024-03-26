@@ -2,10 +2,10 @@ function Enemigos(x,y,board){
     let self = this;
     this.x = x
     this.y = y
-    this.width = 50
-    this.height = 50
+    this.width = 40
+    this.height = 40
     this.direction_E = -1
-    this.speed = 10
+    this.speed = 5
     this.sprite_Enemy = document.createElement('div')
 
     //Aqui creamos la nave y la guardamos en la class = nave_enemigos
@@ -17,16 +17,32 @@ function Enemigos(x,y,board){
     }
     //Movimiento del Enemigo
     this.moveEnemy = function(){
+        self.checkbox()
         let moveX = self.x + self.speed * self.direction_E
-        if(moveX >= 0 && moveX <= 930){
+        if (moveX <= 10){
+            board.removeChild(self.sprite_Enemy);
+            arrayEnemigos.shift()
+            clearInterval(this.timerEnemy)
+        }  
+        if(moveX <= 930){
             self.x = moveX
             this.sprite_Enemy.style.left = self.x + 'px'
+
         } 
-    } 
+    }
+    this.checkbox = function(){
+        if (self.x < nave_Jugador.x + nave_Jugador.width &&
+            self.y < nave_Jugador.y + nave_Jugador.height &&
+            self.x + self.width > nave_Jugador.x &&
+            self.y + self.height > nave_Jugador.y) {
+            nave_Jugador.isDead = true
+        }
+    }  
 
     this.timerEnemy = setInterval(function() {
         self.moveEnemy(); 
-    }, 30); 
+    },15); 
+
 }
 
     

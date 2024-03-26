@@ -1,13 +1,32 @@
 const board = document.getElementById('container')
 const nave_Jugador = new Nave_Player(100,300,board)
-let nave_Enemiga = new Enemigos(900,400,board)
-
-
 let arrayEnemigos = []
 let timerNave;
 let timerEnemigo;
+let timerMuerte;
 
 
+
+
+function startGame(){
+    nave_Jugador.addShip() 
+    timerMuerte= setInterval(function() {
+        Muerte(); 
+    }, 20); 
+    timerEnemigo = setInterval(function() {
+        crearEnemigos(); 
+    }, 1500); 
+}
+
+function Muerte(){
+    console.log(nave_Jugador.isDead )
+   if(nave_Jugador.isDead === false){
+    nave_Jugador.move()
+   } else {
+    board.removeChild(nave_Jugador.sprite)
+    clearInterval(timerMuerte)
+   }
+}
 
 function reproducirDisparo(){
     const sonido1 = document.getElementById("sonido_laser")
@@ -15,22 +34,13 @@ function reproducirDisparo(){
     sonido1.playBackRate = 4;
 }
 
-function startGame(){
-    nave_Jugador.addShip() 
-    nave_Jugador.move()
-    nave_Enemiga.addEnemy()
-    //timerEnemigo = setInterval(crearEnemigos,3000) 
-    timerEnemigo = setInterval(function() {
-        crearEnemigos(); 
-    }, 3000); 
-}
-
 function crearEnemigos(){
+    
     let numeroRandom = Math.floor(Math.random() * 10) * 65;
-    let nave_Enemiga = new Enemigos(900,numeroRandom,board)
-    nave_Enemiga.addEnemy()
-    arrayEnemigos.push(nave_Enemiga)
-
+    let nave_Enemigo = new Enemigos(900,numeroRandom,board)
+    arrayEnemigos.push(nave_Enemigo)
+    nave_Enemigo.addEnemy()
+    
 }
 
 window.addEventListener('keydown',function(evento){
