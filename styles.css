@@ -1,6 +1,8 @@
 /*MAPA*/
 #container{
-    background-image: url('imagenes/fondo.avif');
+    background-image: url('imagenes/New\ Project.gif');
+    background-size: cover;
+    background-position: center;
     width: 1000px;
     height: 700px;
     margin: 50px auto 0 auto;
@@ -52,6 +54,7 @@
     height: 15px;
     position : absolute
 }
+
 .meteorito{
     width: 40px;
     height: 40px;
@@ -59,4 +62,29 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
+
+.pantalla_Inicio{
+    width: 100%;
+    height: 800px;
+    background-color: blue;
+}
+
+.flex{
+    margin: 0 auto;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: bisque;
+}
+
+.arcade{
+    height: 1000px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-image: url(imagenes/arcade.jpg);
+
 }

@@ -16,13 +16,24 @@
 </head>
 
 <body>
-    <div id="start-game">
+    <div id="start-game" class="pantalla_Inicio">
         <button id="start-try">Start</button>
     </div >
 
-    <audio id="sonido_laser" src="sonidos/scifi002.mp3"></audio>
-    <div id="container"></div>
-    
+    <audio id="sonido_laser" src="sonidos/disparo_laser.mp3" start="0" end="1"></audio>
+    <audio id="explosion" src="sonidos/explosion.mp3"></audio>
+    <audio id="musica" src="sonidos/musica.mp3"></audio>
+
+    <div class="arcade">
+    <div id="container">
+            <div div class="flex">
+                <h2 class="score">POINTS : <span id="puntos">000</span></h2>
+                <h2 class="score">TIME : <span id="clock">120</span> S</h2>
+                <h2 class="score">LIFES :<span id="lifes">3</span></h2>
+            </div>
+        </div>
+    </div>
+        
     <div id="end-game">
         <button id="try-again">Retry</button>
     </div >

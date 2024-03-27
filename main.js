@@ -1,5 +1,7 @@
 const board = document.getElementById('container')
 const nave_Jugador = new Nave_Player(100,300,board)
+
+
 let arrayEnemigos = []
 let arrayEnemigos2 = []
 let arrayEnemigos3 = []
@@ -10,18 +12,37 @@ let timerEnemigo2;
 let timerEnemigo3;
 let timerMeteorito;
 let timerMuerte;
+let timerReloj;
+let suma = 0;
+let resta = 120;
+let vidas = 3;
+
+//Sonidos
+const sonido_Explosion = document.getElementById("explosion")
+const sonido_musica = document.getElementById("musica")
+
+//botones start reply
 let inicio = document.getElementById('start-game')
 let boton_inicio = document.getElementById('start-try')
 let boton_final = document.getElementById('try-again')
 
+//Score , vida y reloj
+let points = document.getElementById('puntos')
+let reloj = document.getElementById('clock')
+let lifes = document.getElementById('lifes')
 
+
+
+//Inicia el game
 function startGame(){
+    musica()
     nave_Jugador.addShip() 
     timerMuerte= setInterval(function() {
         Muerte(); 
     }, 20); 
     timerEnemigo = setInterval(function() {
         crearEnemigos(); 
+
     }, 4000);
     timerEnemigo2 = setInterval(function() {
         crearEnemigos2(); 
@@ -32,35 +53,77 @@ function startGame(){
     timerMeteorito = setInterval(function() {
         crearMeteorito(); 
     }, 8000); 
+
+    }, 800);
+    timerReloj = setInterval(function(){
+        cronometro()
+    },1000);
+}
+ //Reloj 
+function cronometro(){
+    resta -= 1
+    reloj.innerHTML = resta
+    if(resta <= 100 && resta > 50){
+        reloj.style.color = 'orange'
+    } else if (resta < 50 ){
+        reloj.style.color = 'red'
+    }  
+    if(resta <=0){
+        nave_Jugador.isDead = true
+        board.removeChild(nave_Jugador.sprite)
+        sonido_Explosion.play()
+        clearInterval(timerMuerte)
+        clearInterval(timerEnemigo)
+        alert("Game over")
+        clearInterval(timerReloj)
+
 }
 
+
 function Muerte(){
-    console.log(nave_Jugador.isDead )
    if(nave_Jugador.isDead === false){
     nave_Jugador.move()
    } else {
     board.removeChild(nave_Jugador.sprite)
+    sonido_Explosion.play()
     clearInterval(timerMuerte)
     clearInterval(timerEnemigo)
+
     clearInterval(timerEnemigo2)
     clearInterval(timerEnemigo3)
     clearInterval(timerMeteorito) 
+
+    clearInterval(timerReloj)
+
     alert("Game over")
    }
 }
 
+
 function reproducirDisparo(){
     const sonido1 = document.getElementById("sonido_laser")
+
+//Sonidos
+function reproducirDisparo(){  
+    const sonido1 = document.getElementById("sonido_laser") 
+
     sonido1.play()
-    sonido1.playBackRate = 4;
+    sonido1.playBackRate = 1;
 }
 
+//Reproducir Musica
+function musica(){
+    sonido_musica.volume = 0.3;
+    sonido_musica.play()
+}
+
+//Crear enemigos en bucle 
 function crearEnemigos(){
-    let numeroRandom = Math.floor(Math.random() * 10) * 65;
+    let numeroRandom = Math.floor(Math.random() * 8) * 63;
+    numeroRandom += 100
     let nave_Enemigo = new Enemigos(900,numeroRandom,board)
     arrayEnemigos.push(nave_Enemigo)
     nave_Enemigo.addEnemy()  
-    console.log(arrayEnemigos)
 }
 function crearEnemigos2(){
     let numeroRandom = Math.floor(Math.random() * 10) * 65;
@@ -89,40 +152,45 @@ boton_inicio.addEventListener('click', function(e) {
     inicio.style.display = 'none'
     board.style.display = 'block'
     nave_Jugador.isDead = false
+    lifes.innerText = 3
+    vidas = 3
+    resta = 120
+    reloj.innerHTML = 120
     startGame()
 })
 
 boton_final.addEventListener('click', function(e) {
     inicio.style.display = 'block'   
     board.style.display = 'none'
-    retry.style.display = 'none'
-    
+    retry.style.display = 'none'    
 })
     
-
+//Eventos del teclado para el movimiento del jugador
 window.addEventListener('keydown',function(evento){
+    if(nave_Jugador.isDead === false){
+
     switch(evento.key){
 
-        case  'ArrowUp':
+        case  'w':
         nave_Jugador.directionY = -1
         break;
 
-        case  'ArrowDown':
+        case  's':
         nave_Jugador.directionY = 1
         break;
 
-        case  'ArrowLeft':
+        case  'a':
         nave_Jugador.directionX = -1
         break;
 
-        case  'ArrowRight' :
+        case  'd' :
         nave_Jugador.directionX = 1
         break;
 
         case ' ' :
         reproducirDisparo()
         let bala = new Bala(nave_Jugador.x, nave_Jugador.y, board)
-        let bala2 = new Bala(nave_Jugador.x, nave_Jugador.y + 55, board,)
+        let bala2 = new Bala(nave_Jugador.x, nave_Jugador.y + 55, board)
         bala2.addBala();
         bala.addBala();
         break;   
@@ -132,14 +200,14 @@ window.addEventListener('keydown',function(evento){
          nave_Jugador.directionY = 0
     }
     nave_Jugador.move()
+    }
 })
 
-
+//Limpia la direccion del enemigo
 window.addEventListener('keyup',function(evento){
     this.clearInterval(timerNave)
     nave_Jugador.directionX = 0
     nave_Jugador.directionY = 0
 })
-
 
 

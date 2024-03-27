@@ -15,6 +15,7 @@ function Enemigos(x,y,board){
         this.sprite_Enemy.style.left = this.x + 'px'
         board.appendChild(this.sprite_Enemy)
     }
+
     //Movimiento del Enemigo
     this.moveEnemy = function(){
         self.checkbox()
@@ -30,14 +31,24 @@ function Enemigos(x,y,board){
         } 
     }
 
+    //Coliciones de los enemigos con el jugador
     this.checkbox = function(){
         if (self.x < nave_Jugador.x + nave_Jugador.width &&
             self.y < nave_Jugador.y + nave_Jugador.height &&
             self.x + self.width > nave_Jugador.x &&
-            self.y + self.height > nave_Jugador.y) {
-            nave_Jugador.isDead = true
+            self.y + self.height > nave_Jugador.y){
+
+            board.removeChild(self.sprite_Enemy)
+            clearInterval(self.timerEnemy)
+
+            vidas = vidas -1
+            lifes.innerHTML = vidas
+            if(vidas <= 0){
+                nave_Jugador.isDead = true 
+                sonido_musica.pause()
+            }       
         }
-    }  
+    } 
 
     this.timerEnemy = setInterval(function() {
         self.moveEnemy(); 
