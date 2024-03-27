@@ -22,7 +22,7 @@ function Nave_Player(x,y,board){
         let moveInY = self.y + self.speed * self.directionY
         let moveInX = self.x + self.speed * self.directionX
 
-        if(moveInY >= 0 && moveInY <= 620){
+        if(moveInY >= 75 && moveInY <= 620){
            self.y = moveInY
            this.sprite.style.top = self.y + 'px'
         }
@@ -31,6 +31,5 @@ function Nave_Player(x,y,board){
             this.sprite.style.left = self.x + 'px'
         }     
     }
-
-
+    
 }

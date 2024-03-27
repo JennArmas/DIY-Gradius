@@ -12,10 +12,9 @@ function Bala(x, y, board) {
     this.addBala = function() {
         this.sprite.setAttribute('class', 'disparo');
         this.sprite.style.top = this.y + 'px';
-        this.sprite.style.left = this.x + 'px';
-        board.appendChild(this.sprite);
-        console.log(arrayEnemigos)
-    };
+        this.sprite.style.left = this.x + 'px'
+        board.appendChild(this.sprite)
+    }
 
     // Esto mueve la bala
     this.moveBala = function() {
@@ -29,26 +28,30 @@ function Bala(x, y, board) {
             checkCollision();
         }
     }
-    
-function checkCollision() {
-    arrayEnemigos.forEach((enemy,index) => {
-     if (self.x < enemy.x + enemy.width &&
-         self.y < enemy.y + enemy.height &&
-         self.x + self.width > enemy.x &&
-         self.y + self.height > enemy.y) {
-             self.removeBala()
-             console.log(arrayEnemigos)
-             arrayEnemigos.splice(index,1)
-             clearInterval(enemy.timerEnemy)
-             console.log(arrayEnemigos)
-             board.removeChild(enemy.sprite_Enemy);
+
+    //Esto genera la colision de la bala con los enemigos 
+    function checkCollision() {
+        arrayEnemigos.forEach((enemy,index) => {
+        if (self.x < enemy.x + enemy.width &&
+            self.y < enemy.y + enemy.height &&
+            self.x + self.width > enemy.x &&
+            self.y + self.height > enemy.y) {
+                
+                self.removeBala()
+                arrayEnemigos.splice(index,1)
+                clearInterval(enemy.timerEnemy)
+                board.removeChild(enemy.sprite_Enemy)
+
+            suma +=100
+            points.innerHTML = suma
          }
      });
  }
+    //Esto borra la bala y su intervalo
     this.removeBala = function() {
         clearInterval(self.timerBala);
         board.removeChild(self.sprite);
-    }; 
+    } 
     
     
     this.timerBala = setInterval(this.moveBala, 2);
