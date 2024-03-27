@@ -26,6 +26,24 @@
     position: absolute;
 }
 
+.nave_Enemigos2{
+    width: 40px;
+    height: 40px;
+    background-image: url("imagenes/enemigo2.png");    
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.nave_Enemigos3{
+    width: 40px;
+    height: 40px;
+    background-image: url("imagenes/enemigo3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
 .disparo{
     background-image: url('imagenes/disparo.png');
     background-size: contain;
@@ -33,4 +51,12 @@
     width: 30px;
     height: 15px;
     position : absolute
+}
+.meteorito{
+    width: 40px;
+    height: 40px;
+    background-image: url("imagenes/meteorito.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
 }

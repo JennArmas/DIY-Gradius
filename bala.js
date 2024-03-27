@@ -27,6 +27,8 @@ function Bala(x, y, board) {
             self.x = newCoordX;
             self.sprite.style.left = self.x + 'px';
             checkCollision();
+            checkCollision2()
+            checkCollision3()
         }
     }
     
@@ -42,6 +44,38 @@ function checkCollision() {
              clearInterval(enemy.timerEnemy)
              console.log(arrayEnemigos)
              board.removeChild(enemy.sprite_Enemy);
+         }
+     });
+ }
+ 
+ function checkCollision2() {
+    arrayEnemigos2.forEach((enemy2,index) => {
+     if (self.x < enemy2.x + enemy2.width &&
+         self.y < enemy2.y + enemy2.height &&
+         self.x + self.width > enemy2.x &&
+         self.y + self.height > enemy2.y) {
+             self.removeBala()
+             console.log(arrayEnemigos2)
+             arrayEnemigos2.splice(index,1)
+             clearInterval(enemy2.timerEnemy2)
+             console.log(arrayEnemigos2)
+             board.removeChild(enemy2.sprite_Enemy2);
+         }
+     });
+ }
+ 
+ function checkCollision3() {
+    arrayEnemigos3.forEach((enemy3,index) => {
+     if (self.x < enemy3.x + enemy3.width &&
+         self.y < enemy3.y + enemy3.height &&
+         self.x + self.width > enemy3.x &&
+         self.y + self.height > enemy3.y) {
+             self.removeBala()
+             console.log(arrayEnemigos3)
+             arrayEnemigos3.splice(index,1)
+             clearInterval(enemy3.timerEnemy3)
+             console.log(arrayEnemigos3)
+             board.removeChild(enemy3.sprite_Enemy3);
          }
      });
  }
