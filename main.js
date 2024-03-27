@@ -41,7 +41,7 @@ function startGame(){
         cronometro()
     },1000);
 }
- 
+ //Reloj 
 function cronometro(){
     resta -= 1
     reloj.innerHTML = resta
@@ -101,13 +101,17 @@ boton_inicio.addEventListener('click', function(e) {
     inicio.style.display = 'none'
     board.style.display = 'block'
     nave_Jugador.isDead = false
+    lifes.innerText = 3
+    vidas = 3
+    resta = 120
+    reloj.innerHTML = 120
     startGame()
 })
 
 boton_final.addEventListener('click', function(e) {
     inicio.style.display = 'block'   
     board.style.display = 'none'
-    retry.style.display = 'none'  
+    retry.style.display = 'none'    
 })
     
 //Eventos del teclado para el movimiento del jugador

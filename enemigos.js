@@ -37,10 +37,16 @@ function Enemigos(x,y,board){
             self.y < nave_Jugador.y + nave_Jugador.height &&
             self.x + self.width > nave_Jugador.x &&
             self.y + self.height > nave_Jugador.y){
-                
-            nave_Jugador.isDead = true  
-            sonido_musica.pause()
-            console.log('hola') 
+
+            board.removeChild(self.sprite_Enemy)
+            clearInterval(self.timerEnemy)
+
+            vidas = vidas -1
+            lifes.innerHTML = vidas
+            if(vidas <= 0){
+                nave_Jugador.isDead = true 
+                sonido_musica.pause()
+            }       
         }
     } 
 
