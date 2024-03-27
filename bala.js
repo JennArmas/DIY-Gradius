@@ -3,7 +3,7 @@ function Bala(x, y, board) {
     this.x = x;
     this.y = y;
     this.width = 20;
-    this.height = 10;
+    this.height = 25;
     this.directionX = 1;
     this.speed = 5;
     this.sprite = document.createElement("div");
@@ -44,7 +44,7 @@ function Bala(x, y, board) {
                 clearInterval(enemy.timerEnemy)
                 board.removeChild(enemy.sprite_Enemy)
 
-            suma +=100
+            suma +=150
             points.innerHTML = suma
          }
      });
@@ -57,12 +57,14 @@ function Bala(x, y, board) {
          self.y < enemy2.y + enemy2.height &&
          self.x + self.width > enemy2.x &&
          self.y + self.height > enemy2.y) {
+
              self.removeBala()
-             console.log(arrayEnemigos2)
              arrayEnemigos2.splice(index,1)
              clearInterval(enemy2.timerEnemy2)
-             console.log(arrayEnemigos2)
              board.removeChild(enemy2.sprite_Enemy2);
+
+            suma +=200
+            points.innerHTML = suma
          }
      });
  }
@@ -73,12 +75,14 @@ function Bala(x, y, board) {
          self.y < enemy3.y + enemy3.height &&
          self.x + self.width > enemy3.x &&
          self.y + self.height > enemy3.y) {
+
              self.removeBala()
-             console.log(arrayEnemigos3)
              arrayEnemigos3.splice(index,1)
              clearInterval(enemy3.timerEnemy3)
-             console.log(arrayEnemigos3)
              board.removeChild(enemy3.sprite_Enemy3);
+
+            suma +=250
+            points.innerHTML = suma
          }
      });
  }

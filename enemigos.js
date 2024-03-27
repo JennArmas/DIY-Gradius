@@ -2,7 +2,7 @@ function Enemigos(x,y,board){
     let self = this;
     this.x = x
     this.y = y
-    this.width = 40
+    this.width = 50
     this.height = 40
     this.direction_E = -1
     this.speed = 5

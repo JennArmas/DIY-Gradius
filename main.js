@@ -42,19 +42,17 @@ function startGame(){
     }, 20); 
     timerEnemigo = setInterval(function() {
         crearEnemigos(); 
-
-    }, 4000);
+    }, 2500);
     timerEnemigo2 = setInterval(function() {
         crearEnemigos2(); 
-    }, 2000);
+    }, 9000);
     timerEnemigo3 = setInterval(function() {
         crearEnemigos3(); 
-    }, 3000);
+    }, 2000);
     timerMeteorito = setInterval(function() {
         crearMeteorito(); 
-    }, 8000); 
+    }, 6000); 
 
-    }, 800);
     timerReloj = setInterval(function(){
         cronometro()
     },1000);
@@ -76,9 +74,8 @@ function cronometro(){
         clearInterval(timerEnemigo)
         alert("Game over")
         clearInterval(timerReloj)
-
-}
-
+    }
+ }
 
 function Muerte(){
    if(nave_Jugador.isDead === false){
@@ -88,13 +85,10 @@ function Muerte(){
     sonido_Explosion.play()
     clearInterval(timerMuerte)
     clearInterval(timerEnemigo)
-
     clearInterval(timerEnemigo2)
     clearInterval(timerEnemigo3)
     clearInterval(timerMeteorito) 
-
     clearInterval(timerReloj)
-
     alert("Game over")
    }
 }
@@ -102,11 +96,10 @@ function Muerte(){
 
 function reproducirDisparo(){
     const sonido1 = document.getElementById("sonido_laser")
-
+}
 //Sonidos
 function reproducirDisparo(){  
     const sonido1 = document.getElementById("sonido_laser") 
-
     sonido1.play()
     sonido1.playBackRate = 1;
 }
@@ -126,14 +119,16 @@ function crearEnemigos(){
     nave_Enemigo.addEnemy()  
 }
 function crearEnemigos2(){
-    let numeroRandom = Math.floor(Math.random() * 10) * 65;
+    let numeroRandom = Math.floor(Math.random() * 8) * 63;
+    numeroRandom += 100
     let nave_Enemigo2 = new Enemigos2(900,numeroRandom,board)
     arrayEnemigos2.push(nave_Enemigo2)
     nave_Enemigo2.addEnemy2()  
     console.log(arrayEnemigos2)
 }   
 function crearEnemigos3(){
-    let numeroRandom = Math.floor(Math.random() * 10) * 65;
+    let numeroRandom = Math.floor(Math.random() * 8) * 63;
+    numeroRandom += 100
     let nave_Enemigo3 = new Enemigos3(900,numeroRandom,board)
     arrayEnemigos3.push(nave_Enemigo3)
     nave_Enemigo3.addEnemy3()  
@@ -141,7 +136,8 @@ function crearEnemigos3(){
 }
     
 function crearMeteorito(){
-    let numeroRandom = Math.floor(Math.random() * 10) * 65;
+    let numeroRandom = Math.floor(Math.random() * 8) * 63;
+    numeroRandom += 100
     let nave_Meteorito = new Meteorito(900,numeroRandom,board)
     arrayMeteorito.push(nave_Meteorito)
     nave_Meteorito.addMeteorito()  
@@ -210,4 +206,4 @@ window.addEventListener('keyup',function(evento){
     nave_Jugador.directionY = 0
 })
 
-
+ 

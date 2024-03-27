@@ -29,8 +29,8 @@
 }
 
 .nave_Enemigos2{
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-image: url("imagenes/enemigo2.png");    
     background-size: contain;
     background-repeat: no-repeat;
@@ -38,8 +38,8 @@
 }
 
 .nave_Enemigos3{
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-image: url("imagenes/enemigo3.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -56,13 +56,13 @@
 }
 
 .meteorito{
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     background-image: url("imagenes/meteorito.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-
+}
 .pantalla_Inicio{
     width: 100%;
     height: 800px;

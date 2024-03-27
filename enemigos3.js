@@ -2,8 +2,8 @@ function Enemigos3(x,y,board){
     let self = this;
     this.x = x
     this.y = y
-    this.width = 40
-    this.height = 40
+    this.width = 50
+    this.height = 50
     this.direction_E = -1
     this.speed = 5
     this.sprite_Enemy3 = document.createElement('div')
@@ -35,7 +35,16 @@ function Enemigos3(x,y,board){
             self.y < nave_Jugador.y + nave_Jugador.height &&
             self.x + self.width > nave_Jugador.x &&
             self.y + self.height > nave_Jugador.y) {
-            nave_Jugador.isDead = true
+
+            board.removeChild(self.sprite_Enemy3)
+            clearInterval(self.timerEnemy3)
+
+            vidas = vidas -1
+            lifes.innerHTML = vidas
+            if(vidas <= 0){
+                nave_Jugador.isDead = true 
+                sonido_musica.pause()
+            }
         }
     }  
 
