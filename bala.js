@@ -38,7 +38,7 @@ function Bala(x, y, board) {
             self.y < enemy.y + enemy.height &&
             self.x + self.width > enemy.x &&
             self.y + self.height > enemy.y) {
-                
+                sonido_colision.play();
                 self.removeBala()
                 arrayEnemigos.splice(index,1)
                 clearInterval(enemy.timerEnemy)
@@ -57,7 +57,7 @@ function Bala(x, y, board) {
          self.y < enemy2.y + enemy2.height &&
          self.x + self.width > enemy2.x &&
          self.y + self.height > enemy2.y) {
-
+             sonido_colision.play();
              self.removeBala()
              arrayEnemigos2.splice(index,1)
              clearInterval(enemy2.timerEnemy2)
@@ -75,7 +75,7 @@ function Bala(x, y, board) {
          self.y < enemy3.y + enemy3.height &&
          self.x + self.width > enemy3.x &&
          self.y + self.height > enemy3.y) {
-
+             sonido_colision.play();
              self.removeBala()
              arrayEnemigos3.splice(index,1)
              clearInterval(enemy3.timerEnemy3)

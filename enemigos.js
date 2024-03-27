@@ -5,7 +5,7 @@ function Enemigos(x,y,board){
     this.width = 50
     this.height = 40
     this.direction_E = -1
-    this.speed = 5
+    this.speed = 7
     this.sprite_Enemy = document.createElement('div')
 
     //Aqui creamos la nave y la guardamos en la class = nave_enemigos

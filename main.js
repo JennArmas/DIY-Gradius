@@ -20,6 +20,7 @@ let vidas = 3;
 //Sonidos
 const sonido_Explosion = document.getElementById("explosion")
 const sonido_musica = document.getElementById("musica")
+const sonido_colision = document.getElementById("colission")
 
 //botones start reply
 let inicio = document.getElementById('start-game')
@@ -42,7 +43,7 @@ function startGame(){
     }, 20); 
     timerEnemigo = setInterval(function() {
         crearEnemigos(); 
-    }, 2500);
+    }, 4500);
     timerEnemigo2 = setInterval(function() {
         crearEnemigos2(); 
     }, 9000);
@@ -109,6 +110,8 @@ function musica(){
     sonido_musica.volume = 0.3;
     sonido_musica.play()
 }
+
+
 
 //Crear enemigos en bucle 
 function crearEnemigos(){
