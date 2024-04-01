@@ -1,0 +1,123 @@
+body {
+  background-image: linear-gradient(90deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%,rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%,rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%,rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%,rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%,rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%,rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%),
+  linear-gradient(67.5deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%,rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%,rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%,rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%,rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%,rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%,rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%),
+  linear-gradient(112.5deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%,rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%,rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%,rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%,rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%,rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%,rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%),
+  linear-gradient(45deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%,rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%,rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%,rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%,rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%,rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%,rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%),
+  linear-gradient(90deg, rgb(95, 3, 74),rgb(35, 65, 96)); 
+  background-blend-mode:overlay,overlay,overlay,overlay,normal;
+}
+
+@font-face {
+  font-family: 'crangregular';
+  src: url('Fonts/crang-webfont.woff') format('woff'),
+       url('Fonts/crang-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#start-game {
+  position: relative;
+  width: fit-content;
+  margin: 200px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  font-size: 3.5vw;
+  font-family: 'crangregular';
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,107,1) 0%, rgba(187,241,19,1) 39%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: liquid 3s infinite;
+}
+@keyframes liquid {
+  0% {
+    transform: translateX(0px); 
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#button-container {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center; /* Alinear los botones horizontalmente */
+  margin-bottom: 30px; /* Espacio entre la imagen y los botones */
+}
+
+.button {
+  font-family: 'crangregular';
+  font-size: 30px;
+  background-color: rgba(187,241,19,1);
+  color: black;
+  cursor: pointer;  
+  border-radius: 5px;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-shadow: 1px 1px 2px black;
+  border-radius: 25% 10%;
+  margin-left: 20px;
+  transition: .3s ease all;
+}
+.restart{
+  width: 600px;
+}
+/* Estilos cuando el botón es presionado */
+.button:active {
+  transform: translateY(2px);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3), inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos cuando el botón está enfocado */
+.button:focus {
+  outline: none;
+}
+
+/* Estilos cuando el cursor está sobre el botón */
+.button:hover {
+  background-color: #cb1521;
+  color: white;
+}
+
+#container {
+  background-image: url('imagenes/fondo.avif');
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#nave_Player{
+    width: 70px;
+    height: 70px;
+    background-image: url('imagenes/nave.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+
+}
+
+.nave_Enemigos{
+    width: 100px;
+    height: 100px;
+    background-image: url('imagenes/enemigo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.disparo{
+    background-image: url('imagenes/disparo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 15px;
+    position : absolute
+}
