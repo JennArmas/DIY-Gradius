@@ -95,9 +95,6 @@ function Muerte(){
 }
 
 
-function reproducirDisparo(){
-    const sonido1 = document.getElementById("sonido_laser")
-}
 //Sonidos
 function reproducirDisparo(){  
     const sonido1 = document.getElementById("sonido_laser") 
@@ -155,6 +152,9 @@ boton_inicio.addEventListener('click', function(e) {
     vidas = 3
     resta = 120
     reloj.innerHTML = 120
+    reloj.style.color = "white"
+    suma = 0
+    points.innerHTML = "000"
     startGame()
 })
 
